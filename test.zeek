@@ -3,13 +3,13 @@ event http_reply(c: connection, version: string, code: count, reason: string)
 	if(code == 404)
 	{
 	  SumStats::observe("http_response_404", 
-    	   SumStats::Key($host = c$id$orig_h), 
-    	   SumStats::Observation($str=c$http$uri));
+    	    SumStats::Key($host = c$id$orig_h), 
+    	    SumStats::Observation($str=c$http$uri));
 	}
 
 	SumStats::observe("http_response", 
-	  SumStats::Key($host = c$id$orig_h), 
-	  SumStats::Observation($str=c$http$uri));
+	   SumStats::Key($host = c$id$orig_h), 
+	   SumStats::Observation($str=c$http$uri));
 
 }
 
